@@ -31,51 +31,51 @@ Ensure you have the following installed:
 
 2. Install dependencies:
 
-- pip install -r requirements.txt
+   - pip install -r requirements.txt
 
 3. Run the application locally:
 
-- uvicorn app:app --host 0.0.0.0 --port 8000
+   - uvicorn app:app --host 0.0.0.0 --port 8000
 
 ### Docker Deployment
 
 1. Build the Docker image:
 
-- docker build -t yolo-inference .
+   - docker build -t yolo-inference .
 
 2. Run the Docker container:
 
-- docker run --rm -p 8000:8000 -v $(pwd)/uploads:/app/uploads -v $(pwd)/results:/app/results yolo-inference
+   - docker run --rm -p 8000:8000 -v $(pwd)/uploads:/app/uploads -v $(pwd)/results:/app/results yolo-inference
 
 3. Access the API:
 
-- Root endpoint: http://127.0.0.1:8000/
+   - Root endpoint: http://127.0.0.1:8000/
 
-- Predict endpoint: http://127.0.0.1:8000/predict/
+   - Predict endpoint: http://127.0.0.1:8000/predict/
 
 ## API Endpoints
 
-- GET /
+   - GET /
 
 Displays API usage instructions.
 
-- POST /predict/
+   - POST /predict/
 
 Uploads an image and performs object detection.
 
 Request:
 
-* File: An image file (JPEG or PNG).
+   * File: An image file (JPEG or PNG).
 
 Response:
 
-* JSON object with:
+   * JSON object with:
 
-  * input_file: Path to the uploaded file.
+     * input_file: Path to the uploaded file.
 
-  * output_file: URL to the annotated image.
+     * output_file: URL to the annotated image.
 
-  * detections: List of detected objects with labels, coordinates, and confidence scores.
+     * detections: List of detected objects with labels, coordinates, and confidence scores.
 
 ## Directory Structure
 
