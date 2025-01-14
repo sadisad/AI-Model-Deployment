@@ -79,12 +79,12 @@ Response:
 
 ## Directory Structure
 
-/app
-├── app.py          # Main application file
-├── uploads/        # Directory for uploaded files
-├── results/        # Directory for annotated files
-├── requirements.txt # Python dependencies
-├── Dockerfile      # Dockerfile for containerization
+   /app
+   ├── app.py          # Main application file
+   ├── uploads/        # Directory for uploaded files
+   ├── results/        # Directory for annotated files
+   ├── requirements.txt # Python dependencies
+   ├── Dockerfile      # Dockerfile for containerization
 
 ## Example Usage
 
