@@ -1,8 +1,8 @@
-# AI-Model-Deployment
+AI-Model-Deployment
 
 YOLOv11l Detection API
 
-This repository contains a FastAPI-based application for object detection using the YOLOv11l model. The application allows users to upload images, performs object detection, and serves the results via a static directory.
+This repository contains a FastAPI-based application for object detection using the YOLOv11l model. The application allows users to upload images, perform object detection, and serve the results via a static directory.
 
 Features
 
@@ -92,7 +92,27 @@ Directory Structure
 
 Example Usage
 
-Upload an image to /predict/ using a tool like Postman or curl:
+Using Postman
+
+Open Postman and create a new POST request.
+
+Set the request URL to:
+
+http://127.0.0.1:8000/predict/
+
+In the Body tab, select form-data and add the following key-value pair:
+
+Key: file
+
+Value: Select an image file (JPEG or PNG) from your local machine.
+
+Send the request and view the response.
+
+Access the annotated image at the output_file URL provided in the response.
+
+Using curl
+
+Upload an image to /predict/ using the following command:
 
 curl -X POST "http://127.0.0.1:8000/predict/" -F "file=@path_to_image.jpg"
 
@@ -121,3 +141,4 @@ Add GPU support for enhanced performance.
 License
 
 This project is licensed under the MIT License.
+
