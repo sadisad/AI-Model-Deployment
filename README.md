@@ -18,9 +18,9 @@ This repository contains a FastAPI-based application for object detection using 
 
 ### 1. Prerequisites
 Ensure you have the following installed:
-- Python 3.11+
-- Docker and Docker Compose
-- Uvicorn (for local testing)
+   - Python 3.11+
+   - Docker and Docker Compose
+   - Uvicorn (for local testing)
 
 ### 2. Installation
 
