@@ -24,14 +24,6 @@ Ensure you have the following installed:
 
 ### 2. Installation
 
-Ensure you have the following installed:
-
-- Python 3.11+
-- Docker and Docker Compose
-- Uvicorn (for local testing)
-
-### 2. Installation
-
 1. Clone the repository:
 
 - git clone <repository-url>
