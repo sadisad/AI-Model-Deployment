@@ -77,14 +77,14 @@ Response:
 
      * detections: List of detected objects with labels, coordinates, and confidence scores.
 
-### Directory Structure
+## Directory Structure
 
    /app
-    ├── app.py                  # Main application file
-    ├── uploads/                # Directory for uploaded files
-    ├── results/                # Directory for annotated files
-    ├── requirements.txt        # Python dependencies
-    ├── Dockerfile              # Dockerfile for containerization
+   ├── app.py                  # Main application file
+   ├── uploads/                # Directory for uploaded files
+   ├── results/                # Directory for annotated files
+   ├── requirements.txt        # Python dependencies
+   ├── Dockerfile              # Dockerfile for containerization
 
 ## Example Usage
 
