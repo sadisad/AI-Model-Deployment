@@ -1,144 +1,140 @@
-AI-Model-Deployment
+# AI-Model-Deployment
 
-YOLOv11l Detection API
+## YOLOv11l Detection API
 
 This repository contains a FastAPI-based application for object detection using the YOLOv11l model. The application allows users to upload images, perform object detection, and serve the results via a static directory.
 
-Features
+---
 
-Model: YOLOv11l for accurate and efficient object detection.
+## Features
+- **Model:** YOLOv11l for accurate and efficient object detection.
+- **API:** RESTful API endpoints for image upload and detection.
+- **Dockerized:** Fully containerized application for easy deployment.
+- **Static Results:** Annotated images are saved and accessible through a static file server.
 
-API: RESTful API endpoints for image upload and detection.
+---
 
-Dockerized: Fully containerized application for easy deployment.
+## Quickstart
 
-Static Results: Annotated images are saved and accessible through a static file server.
-
-Quickstart
-
-Prerequisites
-
+### 1. Prerequisites
 Ensure you have the following installed:
+   - Python 3.11+
+   - Docker and Docker Compose
+   - Uvicorn (for local testing)
 
-Python 3.11+
+### 2. Installation
 
-Docker and Docker Compose
+1. Clone the repository:
 
-Uvicorn (for local testing)
+   -  git clone <repository-url>
+   -  cd <repository-directory>
 
-Installation
+2. Install dependencies:
 
-Clone the repository:
+   - pip install -r requirements.txt
 
-git clone <repository-url>
-cd <repository-directory>
+3. Run the application locally:
 
-Install dependencies:
+   - uvicorn app:app --host 0.0.0.0 --port 8000
 
-pip install -r requirements.txt
+### Docker Deployment
 
-Run the application locally:
+1. Build the Docker image:
 
-uvicorn app:app --host 0.0.0.0 --port 8000
+   - docker build -t yolo-inference .
 
-Docker Deployment
+2. Run the Docker container:
 
-Build the Docker image:
+   - docker run --rm -p 8000:8000 -v $(pwd)/uploads:/app/uploads -v $(pwd)/results:/app/results yolo-inference
 
-docker build -t yolo-inference .
+3. Access the API:
 
-Run the Docker container:
+   - Root endpoint: http://127.0.0.1:8000/
 
-docker run --rm -p 8000:8000 -v $(pwd)/uploads:/app/uploads -v $(pwd)/results:/app/results yolo-inference
+   - Predict endpoint: http://127.0.0.1:8000/predict/
 
-Access the API:
+## API Endpoints
 
-Root endpoint: http://127.0.0.1:8000/
-
-Predict endpoint: http://127.0.0.1:8000/predict/
-
-API Endpoints
-
-GET /
+   - GET /
 
 Displays API usage instructions.
 
-POST /predict/
+   - POST /predict/
 
 Uploads an image and performs object detection.
 
 Request:
 
-File: An image file (JPEG or PNG).
+   * File: An image file (JPEG or PNG).
 
 Response:
 
-JSON object with:
+   * JSON object with:
 
-input_file: Path to the uploaded file.
+     * input_file: Path to the uploaded file.
 
-output_file: URL to the annotated image.
+     * output_file: URL to the annotated image.
 
-detections: List of detected objects with labels, coordinates, and confidence scores.
+     * detections: List of detected objects with labels, coordinates, and confidence scores.
 
-Directory Structure
+## Directory Structure
 
-/app
-├── app.py          # Main application file
-├── uploads/        # Directory for uploaded files
-├── results/        # Directory for annotated files
-├── requirements.txt # Python dependencies
-├── Dockerfile      # Dockerfile for containerization
+   
+   ├── app.py                  # Main application file
+   ├── uploads/                # Directory for uploaded files
+   ├── results/                # Directory for annotated files
+   ├── requirements.txt        # Python dependencies
+   ├── Dockerfile              # Dockerfile for containerization
 
-Example Usage
+## Example Usage
 
-Using Postman
+### Using Postman
 
-Open Postman and create a new POST request.
+1. Open Postman and create a new POST request.
 
-Set the request URL to:
+2. Set the request URL to:
 
-http://127.0.0.1:8000/predict/
+   http://127.0.0.1:8000/predict/
 
-In the Body tab, select form-data and add the following key-value pair:
+3. In the Body tab, select form-data and add the following key-value pair:
 
-Key: file
+   Key: file
 
-Value: Select an image file (JPEG or PNG) from your local machine.
+   Value: Select an image file (JPEG or PNG) from your local machine.
 
-Send the request and view the response.
+4. Send the request and view the response.
 
-Access the annotated image at the output_file URL provided in the response.
+5. Access the annotated image at the output_file URL provided in the response.
 
-Using curl
+### Using curl
 
-Upload an image to /predict/ using the following command:
+1. Upload an image to /predict/ using the following command:
 
-curl -X POST "http://127.0.0.1:8000/predict/" -F "file=@path_to_image.jpg"
+   curl -X POST "http://127.0.0.1:8000/predict/" -F "file=@path_to_image.jpg"
 
-View the result at the provided output_file URL.
+2. View the result at the provided output_file URL.
 
-Testing
+## Testing
 
 To ensure the application is functioning correctly:
 
-Run the application locally or in Docker.
+1. Run the application locally or in Docker.
 
-Upload sample images and verify detections.
+2. Upload sample images and verify detections.
 
-Monitor performance metrics (CPU, memory usage).
+3. Monitor performance metrics (CPU, memory usage).
 
-Future Improvements
+## Future Improvements
 
-Optimize Docker image size using Alpine base image.
+1. Optimize Docker image size using Alpine base image.
 
-Convert the model to ONNX/TensorRT for faster inference.
+2. Convert the model to ONNX/TensorRT for faster inference.
 
-Automate deployment using CI/CD pipelines.
+3. Automate deployment using CI/CD pipelines.
 
-Add GPU support for enhanced performance.
+4. Add GPU support for enhanced performance.
 
-License
+## License
 
 This project is licensed under the MIT License.
 
