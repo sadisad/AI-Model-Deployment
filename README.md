@@ -77,7 +77,7 @@ Response:
 
      * detections: List of detected objects with labels, coordinates, and confidence scores.
 
-## Directory Structure
+### Directory Structure
 
    /app
     ├── app.py                  # Main application file
