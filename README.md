@@ -94,13 +94,13 @@ Response:
 
 2. Set the request URL to:
 
-http://127.0.0.1:8000/predict/
+   http://127.0.0.1:8000/predict/
 
 3. In the Body tab, select form-data and add the following key-value pair:
 
-Key: file
+   Key: file
 
-Value: Select an image file (JPEG or PNG) from your local machine.
+   Value: Select an image file (JPEG or PNG) from your local machine.
 
 4. Send the request and view the response.
 
@@ -110,7 +110,7 @@ Value: Select an image file (JPEG or PNG) from your local machine.
 
 1. Upload an image to /predict/ using the following command:
 
-curl -X POST "http://127.0.0.1:8000/predict/" -F "file=@path_to_image.jpg"
+   curl -X POST "http://127.0.0.1:8000/predict/" -F "file=@path_to_image.jpg"
 
 2. View the result at the provided output_file URL.
 
